@@ -6,11 +6,22 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/main.js",
-    "dev": "ts-node src/main.ts"
+    "dev": "ts-node src/main.ts",
+    "prisma:studio": "prisma studio",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:reset": "prisma migrate reset --force",
+    "process-file": "ts-node src/main.ts process-file",
+    "author-example": "ts-node src/main.ts author-example",
+    "import-authors": "ts-node src/main.ts import-authors",
+    "import-authors:small": "ts-node src/main.ts import-authors -- 25",
+    "search-authors": "ts-node src/main.ts search-authors"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.15.23"
+    "@prisma/client": "^6.8.2",
+    "@types/node": "^22.15.23",
+    "prisma": "^6.8.2",
+    "ts-node": "^10.9.2"
   }
 }

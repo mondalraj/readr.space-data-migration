@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Gender enum for Author model
+enum Gender {
+  male
+  female
+  others
+}
+
+// Author model representing author information
+model Author {
+  id              Int       @id @default(autoincrement())
+  olid            String?
+  birth_date      DateTime?
+  alternate_names String[]
+  name            String?
+  link            String?
+  rating_count    Int       @default(0)
+  average_rating  Float     @default(0)
+  gender          Gender?
+  image_url       String?
+  about           String?   @db.Text
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @updatedAt
+  uuid            String    @unique @default(uuid())
+
+  // Indices for optimized searching
+  @@index([name])
+  @@index([alternate_names])
+  @@index([about])
+  @@index([olid])
+  @@index([average_rating])
+}
