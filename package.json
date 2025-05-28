@@ -9,5 +9,8 @@
     "dev": "ts-node src/main.ts"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.15.23"
+  }
 }
